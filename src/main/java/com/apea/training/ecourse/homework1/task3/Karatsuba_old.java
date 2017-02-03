@@ -1,6 +1,10 @@
-package com.apea.training.ecourse.Homework1.Task3;
+package com.apea.training.ecourse.homework1.task3;
 
 // not working
+
+/**
+ * @deprecated
+ */
 public class Karatsuba_old {
 
     public static long mul(int x, int y) {

@@ -1,4 +1,4 @@
-package com.apea.training.ecourse.Homework1.Task1;
+package com.apea.training.ecourse.homework1.task1;
 
 public enum Numeric {
     BYTE, SHORT, INT, LONG;

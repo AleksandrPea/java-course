@@ -1,6 +1,8 @@
-package com.apea.training.ecourse.Homework1.Task1;
+package com.apea.training.ecourse.homework1.task1;
 
 public class BitCounter  {
+
+    private BitCounter() {}
 
     /**
      * return sizeof(type) in bits or 0 if type

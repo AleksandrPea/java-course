@@ -1,4 +1,4 @@
-package com.apea.training.ecourse.Homework1.Task4;
+package com.apea.training.ecourse.homework1.task4;
 
 public class Euclid {
 
@@ -30,4 +30,6 @@ public class Euclid {
         }
         return result;
     }
+
+    private Euclid() {}
 }

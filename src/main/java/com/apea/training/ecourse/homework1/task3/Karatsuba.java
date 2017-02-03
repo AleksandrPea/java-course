@@ -1,4 +1,4 @@
-package com.apea.training.ecourse.Homework1.Task3;
+package com.apea.training.ecourse.homework1.task3;
 
 import java.math.BigInteger;
 
@@ -27,4 +27,6 @@ public class Karatsuba {
             return a.shiftLeft(half).add(d).shiftLeft(half).add(c);
         }
     }
+
+    private Karatsuba() {}
 }
