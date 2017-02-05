@@ -2,34 +2,35 @@ package com.apea.training.ecourse.homework1.task4;
 
 public class Euclid {
 
-    public static int gcd(int a, int b) {
-        int result;
-        int shift;
-        if (a == 0) {
-            result = b;
-        } else if (b == 0) {
-            result = a;
-        } else {
-            for (shift = 0; ((a | b) & 1) == 0; ++shift) {
-                a >>= 1;
-                b >>= 1;
-            }
-            while ((a & 1) == 0)
-                a >>= 1;
-            do {
-                while ((b & 1) == 0)
-                    b >>= 1;
-                if (a > b) {
-                    int t = b;
-                    b = a;
-                    a = t;
-                }
-                b = b - a;
-            } while (b != 0);
-            result = a << shift;
-        }
-        return result;
-    }
-
     private Euclid() {}
+
+    public static int gcd(int a, int b) {
+        int absA = Math.abs(a);
+        int absB = Math.abs(b);
+        if (absA == 0) {
+            return absB;
+        }
+        if (absB == 0) {
+            return absA;
+        }
+        int shift = 0;
+        while (((absA | absB) & 1) == 0) {
+            absA >>= 1;
+            absB >>= 1;
+            shift++;
+        }
+        while ((absA & 1) == 0)
+            absA >>= 1;
+        do {
+            while ((absB & 1) == 0)
+                absB >>= 1;
+            if (absA > absB) {
+                int t = absB;
+                absB = absA;
+                absA = t;
+            }
+            absB = absB - absA;
+        } while (absB != 0);
+        return absA << shift;
+    }
 }
