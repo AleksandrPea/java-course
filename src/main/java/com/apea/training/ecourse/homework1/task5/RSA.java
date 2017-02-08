@@ -12,15 +12,14 @@ public class RSA {
     private int bitlen = 1024;
 
     /** @see RSAFactory#createRSA(BigInteger, BigInteger) */
-    private RSA(BigInteger newn, BigInteger newe) {
-        n = newn;
-        e = newe;
+    private RSA(BigInteger n, BigInteger e) {
+        this.n = n;
+        this.e = e;
     }
 
     /** @see RSAFactory#createRSA(int) */
     private RSA(int bits) {
         bitlen = bits;
-        generateKeys();
     }
 
     /**
@@ -122,7 +121,9 @@ public class RSA {
             if (bits <= 0) {
                 throw new IllegalArgumentException("Bits can't be <= 0");
             }
-            return new RSA(bits);
+            RSA result = new RSA(bits);
+            result.generateKeys();
+            return result;
         }
     }
 }

@@ -6,10 +6,22 @@ import org.junit.Test;
 public class BitCounterTest {
 
     @Test
-    public void sizeInBitsOfTest() {
-        Assert.assertEquals(BitCounter.sizeInBitsOf(Numeric.BYTE), 8);
-        Assert.assertEquals(BitCounter.sizeInBitsOf(Numeric.SHORT), 16);
-        Assert.assertEquals(BitCounter.sizeInBitsOf(Numeric.INT), 32);
-        Assert.assertEquals(BitCounter.sizeInBitsOf(Numeric.LONG), 64);
+    public void sizeInBitsOfByteTest() {
+        Assert.assertEquals(BitCounter.sizeInBitsOfByte(), 8);
+    }
+
+    @Test
+    public void sizeInBitsOfShortTest() {
+        Assert.assertEquals(BitCounter.sizeInBitsOfShort(), 16);
+    }
+
+    @Test
+    public void sizeInBitsOfIntTest() {
+        Assert.assertEquals(BitCounter.sizeInBitsOfInt(), 32);
+    }
+
+    @Test
+    public void sizeInBitsOfLongTest() {
+        Assert.assertEquals(BitCounter.sizeInBitsOfLong(), 64);
     }
 }
