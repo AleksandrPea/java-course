@@ -18,21 +18,28 @@ public class MySingleLinkedList<E> implements MyList<E> {
     @Override
     public void insert(int index, E elem) {
         if (index == 0) {
-            Node<E> newNode = new Node<>(elem, first);
-            first = newNode;
+            first = new Node<>(elem, first);
         } else {
             Node<E> node = getNode(index - 1);
-            Node<E> newNode = new Node<>(elem, node.next);
-            node.next = newNode;
+            node.next = new Node<>(elem, node.next);
         }
         size++;
     }
 
     @Override
     public E remove(int index) {
-        Node<E> node = getNode(index-1);
-        Node<E> nodeToRemove = node.next;
-        node.next = nodeToRemove.next;
+        if (index == size()) {
+            throw new IndexOutOfBoundsException("index =" + index + "; size =" + size());
+        }
+        Node<E> nodeToRemove;
+        if (index == 0) {
+            nodeToRemove = first;
+            first = first.next;
+        } else {
+            Node<E> node = getNode(index - 1);
+            nodeToRemove = node.next;
+            node.next = nodeToRemove.next;
+        }
         size--;
         return nodeToRemove.item;
     }
@@ -55,11 +62,6 @@ public class MySingleLinkedList<E> implements MyList<E> {
     @Override
     public boolean contains(E elem) {
         return getNodeWithNeighbor(elem) != null;
-    }
-
-    @Override
-    public void add(E elem) {
-        insert(size(), elem);
     }
 
     @Override
@@ -97,9 +99,12 @@ public class MySingleLinkedList<E> implements MyList<E> {
         Node<E> leftNeighbor = null;
         Node<E> current = first;
         while (current != null &&
-                !(current.item == elem || current.item.equals(elem))) {
+                ((elem == null) ? current.item != null : !elem.equals(current.item))) {
             leftNeighbor = current;
             current = leftNeighbor.next;
+        }
+        if (current == null) {
+            return null;
         }
         return new Node[]{leftNeighbor, current};
     }

@@ -30,7 +30,7 @@ public class Dog extends Animal {
     }
 
     public void bite(Dog other) {
-        System.out.println(getName()+" bites "+other.getName());
+        System.out.print(getName()+" bites "+other.getName()+": ");
         other.bark();
     }
 

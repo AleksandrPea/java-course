@@ -4,11 +4,20 @@ public interface MyList<E> {
 
     E get(int index);
 
-    void add(E elem);
+    default void add(E elem) {
+        insert(size(), elem);
+    }
 
     void insert(int index, E elem);
 
     E remove(int index);
+
+    default void clear() {
+        int oldSize = size();
+        for (int i = 0; i < oldSize; i++) {
+            remove(0);
+        }
+    }
 
     boolean remove(E elem);
 
