@@ -15,10 +15,13 @@ public class Necklace implements Jewel {
     }
 
     public static Necklace create(Gemstone first, Gemstone... gemstones) {
-        List<Gemstone> list = new ArrayList<Gemstone>();
+        if (first == null || gemstones == null) {
+            throw new IllegalArgumentException("No null gems!!");
+        }
+        List<Gemstone> list = new ArrayList<>();
         list.add(first);
         Collections.addAll(list, gemstones);
-        if (list.contains(null)) {
+        if (list.contains(null) ) {
             throw new IllegalArgumentException("No null gems!!");
         }
         return new Necklace(list);

@@ -1,6 +1,5 @@
-package com.apea.training.ecourse.jewelry;
+package com.apea.training.ecourse.labwork1.jewelry;
 
-import com.apea.training.ecourse.labwork1.jewelry.Necklace;
 import com.apea.training.ecourse.labwork1.stones.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -33,7 +32,12 @@ public class NecklaceTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void createWithNullTest() {
+    public void createWithNullVarTest() {
         Necklace.create(Diamond.create(10, 0.8), null);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void createWithNullTest() {
+        Necklace.create(null);
     }
 }

@@ -1,8 +1,5 @@
-package com.apea.training.ecourse.jewelry;
+package com.apea.training.ecourse.labwork1.jewelry;
 
-import com.apea.training.ecourse.labwork1.jewelry.Jewel;
-import com.apea.training.ecourse.labwork1.jewelry.Jewels;
-import com.apea.training.ecourse.labwork1.jewelry.Necklace;
 import com.apea.training.ecourse.labwork1.stones.*;
 import org.junit.Assert;
 import org.junit.Test;
