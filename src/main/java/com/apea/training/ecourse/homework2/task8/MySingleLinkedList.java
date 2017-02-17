@@ -1,5 +1,8 @@
 package com.apea.training.ecourse.homework2.task8;
 
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
 public class MySingleLinkedList<E> implements MyList<E> {
 
     private Node<E> first;
@@ -107,6 +110,34 @@ public class MySingleLinkedList<E> implements MyList<E> {
             return null;
         }
         return new Node[]{leftNeighbor, current};
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        return new MyIterator<>();
+    }
+
+    private class MyIterator<E> implements Iterator<E> {
+
+        private int currentIndex = -1;
+        private Node<E> nextNode = (Node<E>) first;
+        private int initSize = size();
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size()-1;
+        }
+
+        @Override
+        public E next() {
+            if (size() != initSize) {
+                throw new ConcurrentModificationException();
+            }
+            currentIndex++;
+            E elem = nextNode.item;
+            nextNode = nextNode.next;
+            return elem;
+        }
     }
 
     private static class Node<E> {

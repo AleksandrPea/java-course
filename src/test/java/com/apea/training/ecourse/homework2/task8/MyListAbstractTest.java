@@ -4,6 +4,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.Assert;
 
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
 public abstract class MyListAbstractTest {
 
     protected MyList<Integer> list;
@@ -122,5 +125,23 @@ public abstract class MyListAbstractTest {
         list.add(135);
         list.insert(0, 111);
         Assert.assertArrayEquals(list.toArray(), new Object[]{111, 135});
+    }
+
+    @Test
+    public void iteratorTest() {
+        Object[] arr = new Object[list.size()];
+        int index = 0;
+        for (Integer i : list) {
+            arr[index] = i;
+            index++;
+        }
+        Assert.assertArrayEquals(list.toArray(), arr);
+    }
+
+    @Test(expected = ConcurrentModificationException.class)
+    public void exceptionIteratorTest() {
+        for (Integer i : list) {
+            list.remove(0);
+        }
     }
 }

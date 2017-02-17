@@ -2,6 +2,9 @@ package com.apea.training.ecourse.homework2.task9;
 
 import com.apea.training.ecourse.homework2.task8.MyList;
 
+import java.util.ConcurrentModificationException;
+import java.util.Iterator;
+
 public class MyLinkedList<E> implements MyList<E> {
 
     private Header<E> header;
@@ -132,6 +135,33 @@ public class MyLinkedList<E> implements MyList<E> {
             current = current.next;
         }
         return current;
+    }
+    @Override
+    public Iterator<E> iterator() {
+        return new MyIterator<E>();
+    }
+
+    private class MyIterator<E> implements Iterator<E> {
+
+        private int currentIndex = -1;
+        private Node<E> nextNode = (Node<E>) header.first;
+        private int initSize = size();
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < size()-1;
+        }
+
+        @Override
+        public E next() {
+            if (size() != initSize) {
+                throw new ConcurrentModificationException();
+            }
+            currentIndex++;
+            E elem = nextNode.item;
+            nextNode = nextNode.next;
+            return elem;
+        }
     }
 
     private static class Node<E> {

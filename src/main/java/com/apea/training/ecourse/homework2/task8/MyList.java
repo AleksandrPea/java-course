@@ -1,6 +1,6 @@
 package com.apea.training.ecourse.homework2.task8;
 
-public interface MyList<E> {
+public interface MyList<E> extends Iterable<E> {
 
     E get(int index);
 
