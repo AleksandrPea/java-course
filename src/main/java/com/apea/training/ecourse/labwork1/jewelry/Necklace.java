@@ -19,7 +19,7 @@ public class Necklace implements Jewel {
         list.add(first);
         Collections.addAll(list, gemstones);
         if (list.contains(null)) {
-            throw new NullPointerException("No null gems!!");
+            throw new IllegalArgumentException("No null gems!!");
         }
         return new Necklace(list);
     }

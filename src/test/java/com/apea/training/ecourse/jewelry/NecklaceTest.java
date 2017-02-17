@@ -32,7 +32,7 @@ public class NecklaceTest {
         Assert.assertEquals(necklace.weight(), 27., 1e-16);
     }
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void createWithNullTest() {
         Necklace.create(Diamond.create(10, 0.8), null);
     }
