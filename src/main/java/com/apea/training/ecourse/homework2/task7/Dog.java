@@ -11,7 +11,7 @@ public class Dog extends Animal {
 
     public static Dog bringToTheWorld(String name, String breed) {
         if (name == null || breed == null) {
-            throw new NullPointerException("Please give not null name and breed of the dog");
+            throw new IllegalArgumentException("Please give not null name and breed of the dog");
         }
         return new Dog(name, breed);
     }

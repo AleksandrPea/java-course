@@ -8,7 +8,7 @@ public class DogTest {
 
     private Dog dog = Dog.bringToTheWorld("Barsik", "Sheep dog");
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void exceptionCreateTest() {
         Dog dog = Dog.bringToTheWorld("Ur", null);
     }

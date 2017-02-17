@@ -3,7 +3,7 @@ import org.junit.Test;
 
 public class ComputerTest {
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void exceptionCreateTest() {
         Computer.createComputer(null, null, null);
     }

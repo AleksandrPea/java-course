@@ -6,7 +6,7 @@ public class PuppyTest {
 
     private Puppy puppy = Puppy.bringToTheWorld("Barsik-young", "Sheep dog");
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void exceptionCreateTest() {
         Puppy.bringToTheWorld("Ur", null);
     }

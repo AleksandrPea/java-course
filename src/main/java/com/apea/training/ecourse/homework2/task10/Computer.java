@@ -22,7 +22,7 @@ public class Computer {
 
     public static Computer createComputer(String OS, String processor, String ROM) {
         if (OS == null || processor == null || ROM == null) {
-            throw new NullPointerException("Null argument");
+            throw new IllegalArgumentException("Wrong argument");
         }
         return new Computer(new Info(OS, processor, ROM));
     }
