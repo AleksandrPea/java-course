@@ -32,8 +32,11 @@ public class FileCash {
         if (data.get() == null) {
             byte[] data = null;
             try {
+                Thread.sleep(250);  // for training purporses
                 data = readFile(file);
             } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
             this.data = new SoftReference<>(data);
