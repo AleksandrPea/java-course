@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.lang.ref.Reference;
 import java.lang.ref.SoftReference;
 import java.util.Optional;
 
@@ -11,13 +12,16 @@ public class FileCash {
 
     private File file;
 
-    private SoftReference<byte[]> data = new SoftReference<>(null);
+    private Reference<byte[]> data = new SoftReference<>(null);
 
     private FileCash(File file) {
         this.file = file;
     }
 
     public static FileCash create(String path) {
+        if (path == null) {
+            throw new IllegalArgumentException("path is null.");
+        }
         File file = new File(path);
         return new FileCash(file);
     }

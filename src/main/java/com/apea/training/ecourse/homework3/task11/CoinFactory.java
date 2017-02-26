@@ -4,6 +4,7 @@ import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;
 import java.lang.ref.ReferenceQueue;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CoinFactory {
 
@@ -12,7 +13,7 @@ public class CoinFactory {
     private int createdMax;
 
     private ReferenceQueue<Coin> refQueue = new ReferenceQueue<>();
-    ArrayList<PhantomReference<Coin>> phantoms = new ArrayList<>();
+    private List<PhantomReference<Coin>> phantoms = new ArrayList<>();
 
     private int createdCurrent = 0;
 

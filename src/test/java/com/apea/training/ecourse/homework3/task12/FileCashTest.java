@@ -10,7 +10,7 @@ public class FileCashTest {
 
     private FileCash fileCash = FileCash.create("file.txt");
 
-    @Test(expected = NullPointerException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void exceptionCreateTest() {
         FileCash.create(null);
     }
