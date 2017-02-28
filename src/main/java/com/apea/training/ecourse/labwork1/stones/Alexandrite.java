@@ -1,5 +1,8 @@
 package com.apea.training.ecourse.labwork1.stones;
 
+import com.apea.training.ecourse.labwork1.misc.GemstoneType;
+import com.apea.training.ecourse.labwork1.trading.Rialto;
+
 public class Alexandrite extends Chrysoberyl {
 
     protected Alexandrite(double weight, double transparency) {
@@ -8,12 +11,6 @@ public class Alexandrite extends Chrysoberyl {
 
     @Override
     public double getCaratPrice() {
-        return 12_000;
-    }
-
-    public static Alexandrite create(double weight, double transparency) {
-        weightCheck(weight);
-        transparencyCheck(transparency);
-        return new Alexandrite(weight, transparency);
+        return Rialto.getInstance().getCaratPrice(GemstoneType.ALEXANDRITE);
     }
 }

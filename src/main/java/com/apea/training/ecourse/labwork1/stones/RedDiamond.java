@@ -1,19 +1,16 @@
 package com.apea.training.ecourse.labwork1.stones;
 
+import com.apea.training.ecourse.labwork1.misc.GemstoneType;
+import com.apea.training.ecourse.labwork1.trading.Rialto;
+
 public class RedDiamond extends Diamond {
 
-    private RedDiamond(double weight, double transparency) {
+    protected RedDiamond(double weight, double transparency) {
         super(weight, transparency);
-    }
-
-    public static RedDiamond create(double weight, double transparency) {
-        weightCheck(weight);
-        transparencyCheck(transparency);
-        return new RedDiamond(weight, transparency);
     }
 
     @Override
     public double getCaratPrice() {
-        return 1_000_000;
+        return Rialto.getInstance().getCaratPrice(GemstoneType.RED_DIAMOND);
     }
 }

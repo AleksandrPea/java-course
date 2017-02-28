@@ -1,5 +1,6 @@
 package com.apea.training.ecourse.labwork1.misc;
 
 public enum GemstoneType {
-    PRECIOUS, SEMI_PRECIOUS;
+
+    ALEXANDRITE, BENITOITE, CHRYSOBERYL, DIAMOND, RED_DIAMOND, RUBY
 }

@@ -1,6 +1,6 @@
 package com.apea.training.ecourse.labwork1.stones;
 
-import com.apea.training.ecourse.labwork1.misc.GemstoneType;
+import com.apea.training.ecourse.labwork1.misc.GemstoneValue;
 
 public abstract class Gemstone {
 
@@ -19,7 +19,7 @@ public abstract class Gemstone {
         return getWeight()*getCaratPrice();
     }
 
-    public abstract GemstoneType getType();
+    public abstract GemstoneValue getType();
 
     /** in $ */
     public abstract double getCaratPrice();

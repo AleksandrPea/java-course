@@ -1,23 +1,25 @@
 package com.apea.training.ecourse.labwork1.jewelry;
 
+import com.apea.training.ecourse.labwork1.misc.GemstoneType;
 import com.apea.training.ecourse.labwork1.stones.*;
 import org.junit.Assert;
 import org.junit.Test;
 
 public class NecklaceTest {
 
+    private GemstoneFactory factory = GemstoneFactory.getInstance();
     private Necklace necklace;
 
     public NecklaceTest() {
         this.necklace = Necklace.create(
-                RedDiamond.create(1, 0.7),
-                Ruby.create(3, 0.7),
-                Benitoite.create(4, 0.5),
-                Diamond.create(1, 0.85),
-                Diamond.create(1, 0.82),
-                Diamond.create(1, 0.82),
-                Benitoite.create(6, 0.3),
-                Chrysoberyl.create(10, 0.4)
+                factory.makeGemstone(1, 0.7, GemstoneType.RED_DIAMOND),
+                factory.makeGemstone(3, 0.7, GemstoneType.RUBY),
+                factory.makeGemstone(4, 0.5, GemstoneType.BENITOITE),
+                factory.makeGemstone(1, 0.85, GemstoneType.DIAMOND),
+                factory.makeGemstone(1, 0.82, GemstoneType.DIAMOND),
+                factory.makeGemstone(1, 0.82, GemstoneType.DIAMOND),
+                factory.makeGemstone(6, 0.3, GemstoneType.BENITOITE),
+                factory.makeGemstone(10, 0.4, GemstoneType.CHRYSOBERYL)
         );
     }
 
@@ -33,7 +35,7 @@ public class NecklaceTest {
 
     @Test(expected = IllegalArgumentException.class)
     public void createWithNullVarTest() {
-        Necklace.create(Diamond.create(10, 0.8), null);
+        Necklace.create(factory.makeGemstone(10, 0.8, GemstoneType.DIAMOND), null);
     }
 
     @Test(expected = IllegalArgumentException.class)

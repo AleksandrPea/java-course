@@ -7,17 +7,19 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-public class JewelsTest {
+import static com.apea.training.ecourse.labwork1.misc.GemstoneType.*;
 
+public class JewelsTest {
+    private GemstoneFactory factory = GemstoneFactory.getInstance();
     private Jewel jewel;
-    private RedDiamond redDiamond = RedDiamond.create(1, 0.7);
-    private Ruby ruby = Ruby.create(3, 0.65);
-    private Benitoite benitoite1 = Benitoite.create(4, 0.5);
-    private Diamond diamond1 = Diamond.create(1, 0.85);
-    private Diamond diamond2 = Diamond.create(1, 0.82);
-    private Diamond diamond3 = Diamond.create(1, 0.82);
-    private Benitoite benitoite2 = Benitoite.create(6, 0.3);
-    private Chrysoberyl chrysoberyl = Chrysoberyl.create(10, 0.4);
+    private RedDiamond redDiamond = (RedDiamond) factory.makeGemstone(1, 0.7, RED_DIAMOND);
+    private Ruby ruby = (Ruby) factory.makeGemstone(3, 0.65, RUBY);
+    private Benitoite benitoite1 = (Benitoite) factory.makeGemstone(4, 0.5, BENITOITE);
+    private Diamond diamond1 = (Diamond) factory.makeGemstone(1, 0.85, DIAMOND);
+    private Diamond diamond2 = (Diamond) factory.makeGemstone(1, 0.82, DIAMOND);
+    private Diamond diamond3 = (Diamond) factory.makeGemstone(1, 0.82, DIAMOND);
+    private Benitoite benitoite2 = (Benitoite) factory.makeGemstone(6, 0.3, BENITOITE);
+    private Chrysoberyl chrysoberyl = (Chrysoberyl) factory.makeGemstone(10, 0.4, CHRYSOBERYL);
 
 
     public JewelsTest() {
