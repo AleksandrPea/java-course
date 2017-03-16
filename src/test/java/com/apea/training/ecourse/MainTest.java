@@ -1,6 +1,6 @@
-+package com.apea.training.ecourse;
-+
-+public class MainTest {
-+
-+    
-+}
+package com.apea.training.ecourse;
+
+public class MainTest {
+
+
+}
